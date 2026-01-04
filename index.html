@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Soto | Arquitecto de Soluciones Digitales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-navy: #0a1429;
+            --midnight-blue: #111b33;
+            --steel-blue: #1a243f;
+            --platinum: #e8e8e8;
+            --light-platinum: #f5f5f7;
+            --gold-accent: #d4af37;
+            --dark-gold: #b8941f;
+            --electric-blue: #3d8bff;
+            --slate-gray: #8a94a6;
+            --success-green: #10b981;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--deep-navy);
+            color: var(--platinum);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        /* Tipografía Senior */
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.01em;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header minimalista */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 24px 0;
+            background: rgba(10, 20, 41, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26, 36, 63, 0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--platinum);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section - Estilo Senior */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 120px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(61, 139, 255, 0.05) 0%, 
+                rgba(212, 175, 55, 0.03) 50%, 
+                transparent 100%);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            color: var(--gold-accent);
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, 
+                var(--platinum) 0%, 
+                rgba(232, 232, 232, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--slate-gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(138, 148, 166, 0.2);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--slate-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 8px;
+        }
+
+        /* Sección de Proyectos */
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold-accent);
+        }
+
+        /* Filtros de Proyectos */
+        .project-filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            background: rgba(138, 148, 166, 0.1);
+            border: 1px solid rgba(138, 148, 166, 0.2);
+            color: var(--slate-gray);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold-accent);
+            color: var(--gold-accent);
+        }
+
+        /* Proyectos Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: var(--midnight-blue);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(138, 148, 166, 0.1);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--gold-accent), 
+                transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-image {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+            background: var(--steel-blue);
+            flex-shrink: 0;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .project-year {
+            color: var(--gold-accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-category {
+            color: var(--electric-blue);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--platinum);
+        }
+
+        .project-description {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tag {
+            padding: 4px 12px;
+            background: rgba(61, 139, 255, 0.1);
+            color: var(--electric-blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(61, 139, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: rgba(61, 139, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            color: var(--platinum);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            padding: 10px 20px;
+            background: rgba(138, 148, 166, 0.1);
+            border-radius: 6px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .project-link:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-accent);
+            transform: translateY(-2px);
+        }
+
+        .project-link.full-width {
+            flex: 0 0 100%;
+        }
+
+        /* Proyecto Destacado */
+        .featured-project {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, var(--steel-blue) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .featured-project .project-image {
+            height: 300px;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold-accent);
+            color: var(--deep-navy);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Proyectos Relacionados */
+        .related-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .related-project {
+            background: rgba(26, 36, 63, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--electric-blue);
+            transition: var(--transition);
+        }
+
+        .related-project:hover {
+            background: rgba(26, 36, 63, 0.8);
+            transform: translateX(4px);
+        }
+
+        .related-project-title {
+            font-size: 1.1rem;
+            color: var(--platinum);
+            margin-bottom: 8px;
+        }
+
+        .related-project-link {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Sección de Experiencia */
+        .experience-timeline {
+            max-width: 800px;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                var(--gold-accent),
+                transparent
+            );
+        }
+
+        .experience-item {
+            margin-bottom: 60px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+        }
+
+        .experience-year {
+            color: var(--gold-accent);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--platinum);
+        }
+
+        .experience-description {
+            color: var(--slate-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--midnight-blue);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(138, 148, 166, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--platinum);
+        }
+
+        .footer-text {
+            color: var(--slate-gray);
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-link {
+            color: var(--slate-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-link:hover {
+            color: var(--gold-accent);
+            transform: translateX(4px);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(138, 148, 166, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            color: var(--slate-gray);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: var(--slate-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            color: var(--gold-accent);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 32px;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .project-filters {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .project-content {
+                padding: 24px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Minimalista -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#" class="logo mono">RS.</a>
+                <ul class="nav-links" style="display: flex; list-style: none; gap: 40px;">
+                    <li><a href="#inicio" class="nav-link active" style="color: var(--slate-gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; transition: var(--transition);">Inicio</a></li>
+                    <li><a href="#proyectos" class="nav-link" style="color: var(--slate-gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; transition: var(--transition);">Proyectos</a></li>
+                    <li><a href="#experiencia" class="nav-link" style="color: var(--slate-gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; transition: var(--transition);">Experiencia</a></li>
+                    <li><a href="#contacto" class="nav-link" style="color: var(--slate-gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.02em; transition: var(--transition);">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle mono">Arquitecto de Soluciones Digitales</p>
+                <h1 class="hero-title">
+                    Transformo <span style="color: var(--gold-accent)">complejidad</span><br>
+                    en <span style="color: var(--electric-blue)">eficiencia</span>
+                </h1>
+                <p class="hero-description">
+                    Con más de 25 años diseñando sistemas empresariales, 
+                    especializado en arquitectura de datos, automatización 
+                    de procesos y desarrollo de software escalable. 
+                    Cada línea de código tiene un propósito.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label mono">Años Experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label mono">Proyectos Clave</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label mono">Tecnologías</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de TODOS los Proyectos -->
+    <section class="section" id="proyectos">
+        <div class="container">
+            <h2 class="section-title">Portafolio <span style="color: var(--gold-accent)">Completo</span></h2>
+            <p class="hero-description" style="margin-bottom: 40px;">
+                Una colección completa de mis proyectos, desde sistemas empresariales complejos 
+                hasta herramientas de productividad y prácticas de desarrollo.
+            </p>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="todos">Todos los Proyectos</button>
+                <button class="filter-btn" data-filter="enterprise">Sistemas Empresariales</button>
+                <button class="filter-btn" data-filter="database">Bases de Datos</button>
+                <button class="filter-btn" data-filter="automation">Automatización</button>
+                <button class="filter-btn" data-filter="web">Desarrollo Web</button>
+            </div>
+            
+            <div class="projects-grid" id="projects-container">
+                <!-- Los 9 proyectos se cargarán aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Experiencia -->
+    <section class="section" id="experiencia">
+        <div class="container">
+            <h2 class="section-title">Trayectoria <span style="color: var(--gold-accent)">Profesional</span></h2>
+            
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-year mono">2022 - Presente</div>
+                    <h3 class="experience-title">Arquitecto de Soluciones</h3>
+                    <p class="experience-description">
+                        Diseño de sistemas empresariales escalables con foco en 
+                        automatización, eficiencia operativa y transformación digital.
+                        Especialización en integración de sistemas legacy y modernización 
+                        de arquitecturas.
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-year mono">2015 - 2022</div>
+                    <h3 class="experience-title">Senior Full Stack Developer</h3>
+                    <p class="experience-description">
+                        Desarrollo de sistemas ERP, CRMs y plataformas de gestión 
+                        empresarial. Implementación de soluciones de base de datos 
+                        para optimización de procesos empresariales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo mono">Rafael Soto</div>
+                    <p class="footer-text">
+                        Desarrollador senior especializado en crear soluciones tecnológicas 
+                        que resuelven problemas empresariales complejos. Enfoque en calidad, 
+                        escalabilidad y resultados medibles.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--platinum); margin-bottom: 24px; font-size: 1.1rem;">Conecta</h3>
+                    <div class="footer-links">
+                        <a href="mailto:rafaelsotove73@gmail.com" class="footer-link mono">
+                            <i class="fas fa-envelope"></i> rafaelsotove73@gmail.com
+                        </a>
+                        <a href="https://linkedin.com/in/rafael-soto-suarez-ti" target="_blank" class="footer-link mono">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/rafaelsotove73" target="_blank" class="footer-link mono">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright mono">
+                    © 2024 Rafael Soto. Todos los derechos reservados.
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/rafaelsotove73" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/rafael-soto-suarez-ti" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:rafaelsotove73@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DATOS COMPLETOS DE TODOS LOS 9 PROYECTOS
+        const allProjects = [
+            {
+                id: 1,
+                title: "Presupuesto Zen",
+                year: "2023",
+                category: "automation",
+                tags: ["Sistema Empresarial", "Python", "SQLite"],
+                description: "Aplicación de escritorio completa para gestión de presupuestos, clientes, materiales y servicios. Desarrollada con Python, CustomTkinter y SQLite. Incluye generación de PDF, import/export de datos y personalización empresarial.",
+                image: "https://github.com/user-attachments/assets/05857aab-5cdf-4384-9504-8628b38552dc",
+                tech: ["Python", "SQLite", "CustomTkinter", "Pandas", "PDF Export"],
+                github: "https://github.com/rafaelsotove73/presupuestos-emprendedores",
+                live: null,
+                featured: true,
+                details: {
+                    "Cliente": "Emprendedores y PYMES",
+                    "Stack": "Python + SQLite + CustomTkinter",
+                    "Características": "CRUD completo, PDF export, Backup/Restore",
+                    "Estado": "Completado"
+                }
+            },
+            {
+                id: 2,
+                title: "Guardián de Licencias Cloud",
+                year: "2024",
+                category: "automation",
+                tags: ["Google Cloud", "Automatización", "Seguridad"],
+                description: "Sistema de gestión inteligente de licencias utilizando Google Cloud Platform. Arquitectura serverless con Cloud Functions, Firestore y Google Workspace API. Automatiza verificación, control de acceso y auditoría de licencias.",
+                image: "https://github.com/user-attachments/assets/fc08a256-f5a0-435c-9813-7ba0722ff18c",
+                tech: ["Google Cloud", "Cloud Functions", "Firestore", "Google Workspace API", "OAuth 2.0"],
+                github: "https://github.com/rafaelsotove73/license-guardi-n-automaci-n-portfolio",
+                live: null,
+                featured: true,
+                details: {
+                    "Arquitectura": "Serverless (FaaS)",
+                    "Base de Datos": "Firestore/Cloud SQL",
+                    "Seguridad": "IAM Policies, Encryption at rest",
+                    "Impacto": "70% ahorro tiempo gestión"
+                }
+            },
+            {
+                id: 3,
+                title: "SI-GEFAL PostgreSQL",
+                year: "2024",
+                category: "database",
+                tags: ["PostgreSQL", "Simulación", "Almacén Autónomo"],
+                description: "Base de datos PostgreSQL para simulación integral de un almacén autónomo. Diseñada para modelar productos, estanterías, ubicaciones dinámicas, robots AGVs y flujos de pedidos en tiempo real.",
+                image: "https://raw.githubusercontent.com/rafaelsotove73/PosgretBaseData_Alm_WareHouse/main/PostgreSQLSimulacionAmacen/inicio.png",
+                tech: ["PostgreSQL", "PL/pgSQL", "Database Design", "Simulation"],
+                github: "https://github.com/rafaelsotove73/PosgretBaseData_Alm_WareHouse",
+                live: null,
+                featured: false,
+                details: {
+                    "DBMS": "PostgreSQL",
+                    "Lenguaje": "PL/pgSQL",
+                    "Tablas": "20+ tablas relacionadas",
+                    "Estado": "Fase 1 Completada"
+                }
+            },
+            {
+                id: 4,
+                title: "SI-GEFAL MySQL",
+                year: "2024",
+                category: "database",
+                tags: ["MySQL", "C#", "Django", "Sistema Completo"],
+                description: "Entorno completo para almacén autónomo con simulador en C#, sistema web en Django y base de datos MySQL. Incluye API REST, gestión de inventario y control de robots.",
+                image: "https://raw.githubusercontent.com/rafaelsotove73/DB_SqlAlmAut/main/MySQLAlmacen/imagenBaseDatosSQL-01.png",
+                tech: ["MySQL", "C#", "Django", "API REST", ".NET"],
+                github: "https://github.com/rafaelsotove73/DB_SqlAlmAut",
+                live: null,
+                featured: false,
+                related: [3],
+                details: {
+                    "Componentes": "Simulador C# + Web Django + MySQL",
+                    "Arquitectura": "MVC + API REST",
+                    "Características": "CRUD, Simulación, Reportes",
+                    "Colaboradores": "2 desarrolladores"
+                }
+            },
+            {
+                id: 5,
+                title: "Sistema de Gestión MySQL",
+                year: "2024",
+                category: "database",
+                tags: ["MySQL", "Gestión Almacén", "Compras"],
+                description: "Sistema completo de gestión de almacén y compras implementado en MySQL. Incluye módulos para proveedores, inventario, albaranes, ubicaciones y trazabilidad de productos.",
+                image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tech: ["MySQL", "Database Design", "Stored Procedures", "Triggers"],
+                github: "https://github.com/rafaelsotove73/DB_MySQL",
+                live: null,
+                featured: false,
+                details: {
+                    "Módulos": "Compras, Almacén, Proveedores",
+                    "Características": "Trazabilidad, Movimientos, Reportes",
+                    "Enfoque": "Base de datos empresarial"
+                }
+            },
+            {
+                id: 6,
+                title: "Sistema MVC Distribuidor",
+                year: "2024",
+                category: "enterprise",
+                tags: ["ASP.NET", "ERP Integration", "Sistema Web"],
+                description: "Sistema web para gestión de pedidos de distribuidores desarrollado con ASP.NET MVC. Integración directa con ERP existente, validación de crédito en tiempo real y control de inventario.",
+                image: "https://raw.githubusercontent.com/rafaelsotove73/MVC_Sistema_Distribuidor/main/ProyectoWebMVCDistributor/ScreemPedidoBeginer.jpg",
+                tech: ["ASP.NET", "C#", "SQL Server", "Entity Framework", "MVC 5"],
+                github: "https://github.com/rafaelsotove73/MVC_Sistema_Distribuidor",
+                live: null,
+                featured: true,
+                details: {
+                    "Framework": "ASP.NET MVC 5",
+                    "Base de Datos": "SQL Server (ERP integrado)",
+                    "Características": "Validación crédito, Bloqueo clientes",
+                    "Integración": "Directa con sistema ERP"
+                }
+            },
+            {
+                id: 7,
+                title: "Factu_Easy_Pro ERP",
+                year: "2023",
+                category: "enterprise",
+                tags: ["Django", "ERP Completo", "Sistema Empresarial"],
+                description: "Sistema ERP completo para PYMES desarrollado con Django. Gestión integral de facturación, inventario, clientes, proveedores, compras, ventas y reportes financieros.",
+                image: "https://raw.githubusercontent.com/rafaelsotove73/Factu_Easy_Pro/main/Menu/menu_principal.jpg",
+                tech: ["Django", "Python", "SQLite", "JavaScript", "Bootstrap"],
+                github: "https://github.com/rafaelsotove73/Factu_Easy_Pro",
+                live: null,
+                featured: true,
+                details: {
+                    "Framework": "Django",
+                    "Módulos": "10+ módulos empresariales",
+                    "Características": "POS, Facturación, Inventario",
+                    "Estado": "Fase 1 Completada"
+                }
+            },
+            {
+                id: 8,
+                title: "Working-inSQL",
+                year: "2024",
+                category: "database",
+                tags: ["T-SQL", "SQL Server", "Consultas Avanzadas"],
+                description: "Colección de consultas T-SQL avanzadas para manipulación y obtención de metadatos en SQL Server. Enfocado en performance tuning, análisis de esquemas y optimización de queries.",
+                image: "https://images.unsplash.com/photo-1555633514-abcee6ab92e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tech: ["T-SQL", "SQL Server", "Query Optimization", "Metadata", "Performance"],
+                github: "https://github.com/rafaelsotove73/Working-inSQL",
+                live: null,
+                featured: false,
+                details: {
+                    "Enfoque": "Consultas avanzadas T-SQL",
+                    "Nivel": "Medio-Avanzado",
+                    "Contenido": "Metadata, Performance, Optimization",
+                    "Uso": "Educativo/Referencia"
+                }
+            },
+            {
+                id: 9,
+                title: "Maquetación HTML",
+                year: "2024",
+                category: "web",
+                tags: ["HTML5", "CSS3", "Web Design", "Práctica"],
+                description: "Colección de 7 maquetaciones HTML/CSS con diferentes estructuras y layouts. Prácticas de diseño web responsivo, semántica HTML y técnicas modernas de CSS.",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                tech: ["HTML5", "CSS3", "Responsive Design", "Web Layout"],
+                github: "https://github.com/rafaelsotove73/MaquetacionHtml",
+                live: null,
+                featured: false,
+                details: {
+                    "Tipo": "Prácticas de maquetación",
+                    "Archivos": "7 versiones diferentes",
+                    "Enfoque": "HTML Semántico + CSS3",
+                    "Nivel": "Fundamentos a Intermedio"
+                }
+            }
+        ];
+
+        // Categorías para filtros
+        const categoryMap = {
+            'enterprise': ['Sistema MVC Distribuidor', 'Factu_Easy_Pro ERP'],
+            'database': ['SI-GEFAL PostgreSQL', 'SI-GEFAL MySQL', 'Sistema de Gestión MySQL', 'Working-inSQL'],
+            'automation': ['Presupuesto Zen', 'Guardián de Licencias Cloud'],
+            'web': ['Maquetación HTML']
+        };
+
+        // Renderizar todos los proyectos
+        function renderProjects(filter = 'todos') {
+            const container = document.getElementById('projects-container');
+            container.innerHTML = '';
+            
+            let filteredProjects = allProjects;
+            
+            if (filter !== 'todos') {
+                filteredProjects = allProjects.filter(project => {
+                    return categoryMap[filter]?.some(title => 
+                        project.tags.some(tag => tag.toLowerCase().includes(title.toLowerCase().split(' ')[0]))
+                    ) || project.category === filter;
+                });
+            }
+            
+            filteredProjects.forEach(project => {
+                const projectElement = document.createElement('div');
+                projectElement.className = `project-card ${project.featured ? 'featured-project' : ''}`;
+                
+                if (project.featured) {
+                    projectElement.innerHTML = `
+                        <div class="featured-badge">⭐ PROYECTO DESTACADO</div>
+                        <div class="project-image">
+                            <img src="${project.image}" alt="${project.title}" 
+                                 onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-year mono">${project.year}</span>
+                                <span class="project-category mono">${project.tags.join(' • ')}</span>
+                            </div>
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-description">${project.description}</p>
+                            
+                            <div class="project-tech">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            
+                            <div style="margin: 20px 0; padding: 16px; background: rgba(26, 36, 63, 0.5); border-radius: 8px; border-left: 3px solid var(--gold-accent);">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9rem;">
+                                    ${Object.entries(project.details || {}).map(([key, value]) => `
+                                        <div>
+                                            <span style="color: var(--slate-gray);">${key}:</span><br>
+                                            <span style="color: var(--platinum); font-weight: 500;">${value}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="${project.github}" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Ver Repositorio
+                                </a>
+                                ${project.live ? `
+                                    <a href="${project.live}" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Ver Demo
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    projectElement.innerHTML = `
+                        <div class="project-image">
+                            <img src="${project.image}" alt="${project.title}" 
+                                 onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-year mono">${project.year}</span>
+                                <span class="project-category mono">${project.tags.slice(0, 2).join(' • ')}</span>
+                            </div>
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-description">${project.description}</p>
+                            
+                            <div class="project-tech">
+                                ${project.tech.slice(0, 4).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="${project.github}" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Ver Código
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                container.appendChild(projectElement);
+            });
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Renderizar todos los proyectos inicialmente
+            renderProjects();
+            
+            // Configurar filtros
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase activa
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Agregar clase activa
+                    this.classList.add('active');
+                    
+                    // Filtrar proyectos
+                    const filter = this.getAttribute('data-filter');
+                    renderProjects(filter);
+                });
+            });
+            
+            // Navegación
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    document.querySelectorAll('.nav-link').forEach(l => {
+                        l.style.color = 'var(--slate-gray)';
+                    });
+                    this.style.color = 'var(--gold-accent)';
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animación de estadísticas
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+                        setTimeout(updateCounter, 40);
+                    } else {
+                        stat.textContent = target + (stat.textContent.includes('+') ? '+' : '');
+                    }
+                };
+                
+                // Iniciar cuando sea visible
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        updateCounter();
+                        observer.disconnect();
+                    }
+                });
+                
+                observer.observe(stat.parentElement);
+            });
+            
+            // Animación de aparición
+            const projectObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            // Observar proyectos después de que se rendericen
+            setTimeout(() => {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    projectObserver.observe(card);
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
