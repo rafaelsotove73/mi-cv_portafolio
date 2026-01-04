@@ -421,98 +421,163 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Proyectos Relacionados */
-        .related-projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .related-project {
-            background: rgba(26, 36, 63, 0.5);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 3px solid var(--electric-blue);
-            transition: var(--transition);
-        }
-
-        .related-project:hover {
-            background: rgba(26, 36, 63, 0.8);
-            transform: translateX(4px);
-        }
-
-        .related-project-title {
-            font-size: 1.1rem;
-            color: var(--platinum);
-            margin-bottom: 8px;
-        }
-
-        .related-project-link {
-            color: var(--electric-blue);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* Sección de Experiencia */
-        .experience-timeline {
-            max-width: 800px;
+        /* Sección de Experiencia - Mejorada */
+        .experience-section {
+            background: var(--midnight-blue);
+            border-radius: 16px;
+            padding: 60px;
+            margin-top: 80px;
+            border: 1px solid rgba(138, 148, 166, 0.1);
             position: relative;
         }
 
-        .experience-timeline::before {
+        .experience-section::before {
             content: '';
             position: absolute;
+            top: -1px;
             left: 0;
-            top: 0;
-            height: 100%;
-            width: 1px;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                var(--gold-accent),
-                transparent
-            );
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 1000px;
         }
 
         .experience-item {
             margin-bottom: 60px;
-            padding-left: 40px;
+            padding: 30px;
+            background: rgba(26, 36, 63, 0.5);
+            border-radius: 12px;
+            border-left: 4px solid var(--gold-accent);
+            transition: var(--transition);
             position: relative;
         }
 
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--gold-accent);
-            border-radius: 50%;
+        .experience-item:hover {
+            background: rgba(26, 36, 63, 0.8);
+            transform: translateX(4px);
         }
 
-        .experience-year {
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .experience-title-container {
+            flex: 1;
+        }
+
+        .experience-period {
             color: var(--gold-accent);
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .experience-title {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
+        .experience-company {
+            font-size: 1.2rem;
             color: var(--platinum);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .experience-company i {
+            color: var(--electric-blue);
+        }
+
+        .experience-position {
+            font-size: 1.5rem;
+            color: var(--platinum);
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--platinum) 0%, var(--electric-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .experience-description {
             color: var(--slate-gray);
             font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .experience-highlights {
+            margin: 25px 0;
+            padding-left: 20px;
+        }
+
+        .experience-highlights li {
+            color: var(--slate-gray);
+            margin-bottom: 12px;
             line-height: 1.6;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .experience-highlights li::before {
+            content: '▸';
+            color: var(--gold-accent);
+            position: absolute;
+            left: -15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tech-stack-item {
+            background: rgba(61, 139, 255, 0.1);
+            color: var(--electric-blue);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(61, 139, 255, 0.2);
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(26, 36, 63, 0.7);
+            border-radius: 10px;
+            border: 1px solid rgba(138, 148, 166, 0.2);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--success-green);
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--slate-gray);
+            margin-top: 6px;
         }
 
         /* Footer */
@@ -603,6 +668,10 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .experience-section {
+                padding: 40px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -627,6 +696,18 @@
             .project-filters {
                 justify-content: center;
             }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .experience-period {
+                align-self: flex-start;
+            }
+            
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -648,6 +729,14 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .experience-section {
+                padding: 24px;
+            }
+            
+            .experience-item {
+                padding: 20px;
             }
         }
     </style>
@@ -679,15 +768,14 @@
                     en <span style="color: var(--electric-blue)">eficiencia</span>
                 </h1>
                 <p class="hero-description">
-                    Con más de 25 años diseñando sistemas empresariales, 
-                    especializado en arquitectura de datos, automatización 
-                    de procesos y desarrollo de software escalable. 
-                    Cada línea de código tiene un propósito.
+                    Con más de 8 años de experiencia en desarrollo de software empresarial, 
+                    especializado en arquitectura de datos, automatización de procesos 
+                    y desarrollo full-stack con tecnologías modernas.
                 </p>
                 
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">25+</span>
+                        <span class="stat-number">8+</span>
                         <span class="stat-label mono">Años Experiencia</span>
                     </div>
                     <div class="stat">
@@ -726,31 +814,150 @@
         </div>
     </section>
 
-    <!-- Sección de Experiencia -->
+    <!-- Sección de Experiencia ACTUALIZADA -->
     <section class="section" id="experiencia">
         <div class="container">
-            <h2 class="section-title">Trayectoria <span style="color: var(--gold-accent)">Profesional</span></h2>
+            <h2 class="section-title">Experiencia <span style="color: var(--gold-accent)">Profesional</span></h2>
             
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-year mono">2022 - Presente</div>
-                    <h3 class="experience-title">Arquitecto de Soluciones</h3>
-                    <p class="experience-description">
-                        Diseño de sistemas empresariales escalables con foco en 
-                        automatización, eficiencia operativa y transformación digital.
-                        Especialización en integración de sistemas legacy y modernización 
-                        de arquitecturas.
-                    </p>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-year mono">2015 - 2022</div>
-                    <h3 class="experience-title">Senior Full Stack Developer</h3>
-                    <p class="experience-description">
-                        Desarrollo de sistemas ERP, CRMs y plataformas de gestión 
-                        empresarial. Implementación de soluciones de base de datos 
-                        para optimización de procesos empresariales.
-                    </p>
+            <div class="experience-section">
+                <div class="experience-timeline">
+                    <!-- Experiencia 1: Freelancer -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-container">
+                                <div class="experience-company">
+                                    <i class="fas fa-laptop-code"></i>
+                                    Empresa FreeLancer | Ecuador
+                                </div>
+                                <h3 class="experience-position">Programador de Sistemas</h3>
+                            </div>
+                            <div class="experience-period mono">01/2025 – 06/2025</div>
+                        </div>
+                        
+                        <p class="experience-description">
+                            Sistema gestión de inventario, compras y ventas | Desarrollador Full-Stack (Python/Django)
+                        </p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-stack-item">Python</span>
+                            <span class="tech-stack-item">Django</span>
+                            <span class="tech-stack-item">Django REST Framework</span>
+                            <span class="tech-stack-item">MySQL</span>
+                            <span class="tech-stack-item">JavaScript</span>
+                            <span class="tech-stack-item">HTML/CSS</span>
+                        </div>
+                        
+                        <ul class="experience-highlights">
+                            <li>Aplicación web independiente con arquitectura MVT y API REST</li>
+                            <li>Desarrollo de más de 50 pantallas con gestión de usuarios por roles</li>
+                            <li>Implementación de JavaScript para interacciones dinámicas</li>
+                            <li>Stack tecnológico completo para sistema empresarial</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Experiencia 2: METALTRONIC S.A. -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-container">
+                                <div class="experience-company">
+                                    <i class="fas fa-industry"></i>
+                                    METALTRONIC S.A. | Ecuador
+                                </div>
+                                <h3 class="experience-position">Programador de Sistemas</h3>
+                            </div>
+                            <div class="experience-period mono">07/2017 – 12/2024</div>
+                        </div>
+                        
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Mejora rendimiento</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">60%</div>
+                                <div class="metric-label">Reducción tiempos respuesta</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">200%</div>
+                                <div class="metric-label">Aumento eficiencia</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">30%</div>
+                                <div class="metric-label">Optimización BD</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="experience-highlights">
+                            <li>Lideré la migración estratégica de 5 aplicaciones críticas de VB.NET a C# sobre .NET 6</li>
+                            <li>Diseñé y desarrollé APIs RESTful con ASP.NET Core MVC, Entity Framework y LINQ</li>
+                            <li>Desarrollé más de 20 aplicaciones y diseñé +50 reportes clave en SQL Server Reporting Services (SSRS)</li>
+                            <li>Automaticé el procesamiento de datos a gran escala (+500,000 registros diarios) con SSIS</li>
+                            <li>Automaticé más de 100 procesos manuales utilizando múltiples tecnologías y frameworks</li>
+                            <li>Gestioné y optimicé entornos ERP asegurando continuidad operativa</li>
+                            <li>Administré bases de datos en MySQL, MariaDB, PostgreSQL, SQLite y Oracle</li>
+                            <li>Optimicé aplicaciones MVC mediante el uso de React nativo con backend en C#</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-stack-item">ASP.NET Core</span>
+                            <span class="tech-stack-item">C#</span>
+                            <span class="tech-stack-item">Entity Framework</span>
+                            <span class="tech-stack-item">SQL Server</span>
+                            <span class="tech-stack-item">SSIS</span>
+                            <span class="tech-stack-item">SSRS</span>
+                            <span class="tech-stack-item">Python</span>
+                            <span class="tech-stack-item">Django</span>
+                            <span class="tech-stack-item">React</span>
+                            <span class="tech-stack-item">MySQL</span>
+                            <span class="tech-stack-item">PostgreSQL</span>
+                            <span class="tech-stack-item">Oracle</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Experiencia 3: AVICAR USA LTDA -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title-container">
+                                <div class="experience-company">
+                                    <i class="fas fa-car"></i>
+                                    AVICAR USA LTDA | Ecuador
+                                </div>
+                                <h3 class="experience-position">Programador Senior</h3>
+                            </div>
+                            <div class="experience-period mono">01/2016 – 07/2017</div>
+                        </div>
+                        
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <div class="metric-value">35%</div>
+                                <div class="metric-label">Reducción costos</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">15%</div>
+                                <div class="metric-label">Disminución CPU</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="experience-highlights">
+                            <li>Colaboré en un equipo de 4 desarrolladores para construir software administrativo-contable</li>
+                            <li>Lideré el desarrollo integral de 20 pantallas y generación de reportes complejos</li>
+                            <li>Desarrollé aplicación WEB MVC con ASP.NET, HTML, JavaScript, CSS y Bootstrap</li>
+                            <li>Administré y gestioné SQL Server con diseños UI/UX</li>
+                            <li>Optimicé consultas T-SQL y procedimientos almacenados reduciendo consumo de CPU</li>
+                            <li>Agilicé significativamente la generación de reportes empresariales</li>
+                        </ul>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-stack-item">ASP.NET MVC</span>
+                            <span class="tech-stack-item">C#</span>
+                            <span class="tech-stack-item">HTML/CSS</span>
+                            <span class="tech-stack-item">JavaScript</span>
+                            <span class="tech-stack-item">jQuery</span>
+                            <span class="tech-stack-item">Bootstrap</span>
+                            <span class="tech-stack-item">SQL Server</span>
+                            <span class="tech-stack-item">T-SQL</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -870,7 +1077,7 @@
                 year: "2024",
                 category: "database",
                 tags: ["MySQL", "C#", "Django", "Sistema Completo"],
-                description: "Entorno completo para almacén autónomo con simulador en C#, sistema web en Django y base de datos MySQL. Incluye API REST, gestión de inventario y control de robots.",
+                description: "Ecosistema completo para almacén autónomo con simulador en C#, sistema web en Django y base de datos MySQL. Incluye API REST, gestión de inventario y control de robots.",
                 image: "https://raw.githubusercontent.com/rafaelsotove73/DB_SqlAlmAut/main/MySQLAlmacen/imagenBaseDatosSQL-01.png",
                 tech: ["MySQL", "C#", "Django", "API REST", ".NET"],
                 github: "https://github.com/rafaelsotove73/DB_SqlAlmAut",
@@ -980,14 +1187,6 @@
             }
         ];
 
-        // Categorías para filtros
-        const categoryMap = {
-            'enterprise': ['Sistema MVC Distribuidor', 'Factu_Easy_Pro ERP'],
-            'database': ['SI-GEFAL PostgreSQL', 'SI-GEFAL MySQL', 'Sistema de Gestión MySQL', 'Working-inSQL'],
-            'automation': ['Presupuesto Zen', 'Guardián de Licencias Cloud'],
-            'web': ['Maquetación HTML']
-        };
-
         // Renderizar todos los proyectos
         function renderProjects(filter = 'todos') {
             const container = document.getElementById('projects-container');
@@ -997,9 +1196,15 @@
             
             if (filter !== 'todos') {
                 filteredProjects = allProjects.filter(project => {
-                    return categoryMap[filter]?.some(title => 
-                        project.tags.some(tag => tag.toLowerCase().includes(title.toLowerCase().split(' ')[0]))
-                    ) || project.category === filter;
+                    // Mapeo de categorías
+                    const categoryMap = {
+                        'enterprise': ['enterprise'],
+                        'database': ['database'],
+                        'automation': ['automation'],
+                        'web': ['web']
+                    };
+                    
+                    return categoryMap[filter]?.includes(project.category);
                 });
             }
             
@@ -1081,6 +1286,20 @@
                 
                 container.appendChild(projectElement);
             });
+            
+            // Añadir animación a los nuevos elementos
+            setTimeout(() => {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+            }, 50);
         }
 
         // Inicializar
@@ -1155,28 +1374,6 @@
                 
                 observer.observe(stat.parentElement);
             });
-            
-            // Animación de aparición
-            const projectObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            // Observar proyectos después de que se rendericen
-            setTimeout(() => {
-                document.querySelectorAll('.project-card').forEach(card => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    projectObserver.observe(card);
-                });
-            }, 100);
         });
     </script>
 </body>
