@@ -138,7 +138,8 @@
             font-weight: 500;
         }
 
-        .hero-title {
+        /* TÍTULO HERO RESPONSIVO - Esta es la parte que mantuvimos */
+        .hero-title01 {
             font-size: 3.5rem;
             line-height: 1.1;
             margin-bottom: 40px;
@@ -150,7 +151,7 @@
             background-clip: text;
         }
 
-        /* Carrusel de Pilares - NUEVO ESTILO */
+        /* Carrusel de Pilares */
         .pillars-carousel-container {
             position: relative;
             max-width: 900px;
@@ -188,21 +189,6 @@
             width: 6px;
             height: 100%;
             background: linear-gradient(to bottom, var(--gold-accent), var(--electric-blue));
-        }
-
-        .pillar-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--gold-accent), var(--dark-gold));
-            color: var(--deep-navy);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            font-weight: 700;
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            font-family: 'JetBrains Mono', monospace;
         }
 
         .pillar-icon {
@@ -355,6 +341,7 @@
             gap: 16px;
             margin-bottom: 60px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .filter-btn {
@@ -379,8 +366,8 @@
         /* Proyectos Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
@@ -534,10 +521,6 @@
             transform: translateY(-2px);
         }
 
-        .project-link.full-width {
-            flex: 0 0 100%;
-        }
-
         /* Proyecto Destacado */
         .featured-project {
             grid-column: 1 / -1;
@@ -563,7 +546,7 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Sección de Experiencia - Mejorada */
+        /* Sección de Experiencia */
         .experience-section {
             background: var(--midnight-blue);
             border-radius: 16px;
@@ -797,89 +780,46 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+        /* =========================================== */
+        /* RESPONSIVE DESIGN - Mejorado */
+        /* =========================================== */
+
+        /* Para tablets grandes y laptops pequeñas */
+        @media (max-width: 1200px) {
             .container {
                 padding: 0 32px;
             }
             
-            .hero-title {
+            .hero-title01 {
                 font-size: 3rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .footer-content {
+                gap: 60px;
+            }
+        }
+
+        /* Para tablets */
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 100px;
+                min-height: 90vh;
+            }
+            
+            .hero-bg {
+                width: 50%;
+            }
+            
+            .hero-title01 {
+                font-size: 2.6rem;
             }
             
             .pillar {
                 padding: 30px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .experience-section {
-                padding: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
-            
-            .hero-title {
-                font-size: 2.4rem;
-            }
-            
-            .carousel-controls {
-                gap: 20px;
-            }
-            
-            .carousel-nav-btn {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 24px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .project-filters {
-                justify-content: center;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-            }
-            
-            .experience-period {
-                align-self: flex-start;
-            }
-            
-            .impact-metrics {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 20px;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-title01 {
-                font-size: 1.75rem;
-            }
-            
-            .pillar {
-                padding: 25px;
             }
             
             .pillar-icon {
@@ -891,28 +831,373 @@
             }
             
             .carousel-controls {
-                flex-direction: column;
-                gap: 15px;
+                gap: 25px;
+            }
+            
+            .hero-stats {
+                flex-direction: row;
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 100px 0;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            
+            .project-content {
+                padding: 25px;
+            }
+            
+            .experience-section {
+                padding: 45px;
+            }
+            
+            .experience-item {
+                padding: 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+        }
+
+        /* Para tablets pequeñas y móviles grandes */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+            
+            .hero {
+                padding-top: 90px;
+                min-height: 80vh;
+            }
+            
+            .hero-bg {
+                width: 40%;
+            }
+            
+            .hero-title01 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 30px;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .pillar {
+                padding: 25px;
+            }
+            
+            .pillar-title {
+                font-size: 1.2rem;
+            }
+            
+            .pillar-description {
+                font-size: 1rem;
+            }
+            
+            .carousel-controls {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .carousel-nav-btn {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+            }
+            
+            .stat {
+                align-items: center;
             }
             
             .section-title {
                 font-size: 2rem;
+                margin-bottom: 60px;
+            }
+            
+            .project-filters {
+                gap: 12px;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .featured-project .project-image {
+                height: 250px;
+            }
+            
+            .experience-section {
+                padding: 30px;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .experience-period {
+                align-self: flex-start;
+            }
+            
+            .experience-position {
+                font-size: 1.3rem;
+            }
+            
+            .impact-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        /* Para móviles pequeños */
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero {
+                padding-top: 80px;
+                min-height: 70vh;
+            }
+            
+            .hero-bg {
+                display: none; /* Ocultar fondo en móviles pequeños para mejor rendimiento */
+            }
+            
+            .hero-title01 {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+            
+            .pillars-carousel-container {
+                margin-bottom: 40px;
+            }
+            
+            .pillar {
+                padding: 20px;
+            }
+            
+            .pillar-icon {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .pillar-title {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+            
+            .pillar-description {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+            }
+            
+            .carousel-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .carousel-indicators {
+                order: 1;
+            }
+            
+            .carousel-counter {
+                order: 2;
+            }
+            
+            .carousel-nav-btn {
+                order: 3;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                margin-top: 40px;
+                padding-top: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .project-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                flex-wrap: nowrap;
+            }
+            
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+            
+            .featured-project .project-image {
+                height: 200px;
             }
             
             .project-content {
-                padding: 24px;
+                padding: 20px;
+            }
+            
+            .project-title {
+                font-size: 1.3rem;
+            }
+            
+            .experience-section {
+                padding: 20px;
+                margin-top: 50px;
+            }
+            
+            .experience-item {
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+            
+            .experience-position {
+                font-size: 1.2rem;
+            }
+            
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-stack {
+                justify-content: center;
+            }
+            
+            footer {
+                padding: 60px 0 30px;
+            }
+            
+            .footer-logo {
+                font-size: 1.8rem;
+            }
+            
+            .footer-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Para móviles muy pequeños */
+        @media (max-width: 375px) {
+            .hero-title01 {
+                font-size: 1.6rem;
+            }
+            
+            .pillar {
+                padding: 15px;
+            }
+            
+            .pillar-description {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
             }
             
             .projects-grid {
                 grid-template-columns: 1fr;
             }
             
-            .experience-section {
-                padding: 24px;
+            .project-links {
+                flex-direction: column;
             }
             
-            .experience-item {
-                padding: 20px;
+            .project-link {
+                width: 100%;
+            }
+            
+            .experience-description {
+                font-size: 0.95rem;
+            }
+            
+            .experience-highlights li {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Ajustes para orientación landscape en móviles */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: 120vh;
+                padding-top: 100px;
+            }
+            
+            .hero-title01 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+            
+            .hero-stats {
+                margin-top: 40px;
+                padding-top: 30px;
+            }
+            
+            .pillars-carousel-container {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Mejoras de accesibilidad para reducir movimiento */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .hero-title01 {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -1051,14 +1336,14 @@
         </div>
     </section>
 
-    <!-- Sección de Experiencia ACTUALIZADA -->
+    <!-- Sección de Experiencia -->
     <section class="section" id="experiencia">
         <div class="container">
             <h2 class="section-title">Experiencia <span style="color: var(--gold-accent)">Profesional</span></h2>
             
             <div class="experience-section">
                 <div class="experience-timeline">
-                    <!-- Experiencia 1: Freelancer (MÁS RECIENTE) -->
+                    <!-- Experiencia 1: Freelancer -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <div class="experience-title-container">
@@ -1196,7 +1481,7 @@
                         </div>
                     </div>
                     
-                    <!-- Experiencia 4: Líder Departamento de Sistemas - Transgar Almacenes -->
+                    <!-- Experiencia 4: Líder Departamento de Sistemas -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <div class="experience-title-container">
@@ -1232,7 +1517,7 @@
                         </ul>
                     </div>
                     
-                    <!-- Experiencia 5: Analista Informático - Maderera la Ojedeña C.A. (MÁS ANTIGUA) -->
+                    <!-- Experiencia 5: Analista Informático -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <div class="experience-title-container">
@@ -1240,7 +1525,7 @@
                                     <i class="fas fa-tree"></i>
                                     Maderera la Ojedeña C.A. | Venezuela
                                 </div>
-                                <h3 class="experience-position">Analista Informático (Programador / Soluciones IT)</h3>
+                                <h3 class="experience-position">Analista Informático</h3>
                             </div>
                             <div class="experience-period mono">09/2010 – 07/2013</div>
                         </div>
@@ -1324,7 +1609,7 @@
     </footer>
 
     <script>
-        // DATOS COMPLETOS DE TODOS LOS 11 PROYECTOS CON IMÁGENES ÚNICAS
+        // DATOS COMPLETOS DE TODOS LOS 11 PROYECTOS
         const allProjects = [
             {
                 id: 1,
@@ -1352,7 +1637,7 @@
                 category: "etl",
                 tags: [".NET 8", "ETL Personalizado", "SSIS Alternativo", "Binance API"],
                 description: "Sistema de inteligencia financiera desarrollado en .NET 8 para captura, procesamiento y análisis de activos criptográficos. Implementa un motor ETL robusto como alternativa programática a SSIS, con arquitectura asíncrona, seguridad integrada y estética dark-theme empresarial.",
-                image: "PresentacionPortafolio.jpg",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 tech: [".NET 8", "C# 12", "SQL Server", "ETL", "Binance API", "Async/Await", "LINQ", "Newtonsoft.Json"],
                 github: "https://github.com/rafaelsotove73/MVC_SSIS_ETL_SQL",
                 live: null,
@@ -1372,7 +1657,7 @@
                 category: "automation",
                 tags: ["Sistema Empresarial", "Python", "SQLite"],
                 description: "Aplicación de escritorio completa para gestión de presupuestos, clientes, materiales y servicios. Desarrollada con Python, CustomTkinter y SQLite. Incluye generación de PDF, import/export de datos y personalización empresarial.",
-                image: "PresentacionPortafolio01.jpg",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 tech: ["Python", "SQLite", "CustomTkinter", "Pandas", "PDF Export"],
                 github: "https://github.com/rafaelsotove73/presupuestos-emprendedores",
                 live: null,
@@ -1410,7 +1695,7 @@
                 category: "database",
                 tags: ["PostgreSQL", "Simulación", "Almacén Autónomo"],
                 description: "Base de datos PostgreSQL para simulación integral de un almacén autónomo. Diseñada para modelar productos, estanterías, ubicaciones dinámicas, robots AGVs y flujos de pedidos en tiempo real.",
-                image: "PresentacionPortafolio02.jpg",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 tech: ["PostgreSQL", "PL/pgSQL", "Database Design", "Simulation"],
                 github: "https://github.com/rafaelsotove73/PosgretBaseData_Alm_WareHouse",
                 live: null,
@@ -1429,7 +1714,7 @@
                 category: "database",
                 tags: ["MySQL", "C#", "Django", "Sistema Completo"],
                 description: "Sistema integrado completo para almacén autónomo con simulador en C#, sistema web en Django y base de datos MySQL. Incluye API REST, gestión de inventario y control de robots.",
-                image: "PresentacionPortafolio03.jpg",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 tech: ["MySQL", "C#", "Django", "API REST", ".NET"],
                 github: "https://github.com/rafaelsotove73/DB_SqlAlmAut",
                 live: null,
@@ -1505,7 +1790,7 @@
                 category: "database",
                 tags: ["T-SQL", "SQL Server", "Consultas Avanzadas"],
                 description: "Colección de consultas T-SQL avanzadas para manipulación y obtención de metadatos en SQL Server. Enfocado en performance tuning, análisis de esquemas y optimización de queries.",
-                image: "PresentacionPortafolio04.jpg",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
                 tech: ["T-SQL", "SQL Server", "Query Optimization", "Metadata", "Performance"],
                 github: "https://github.com/rafaelsotove73/Working-inSQL",
                 live: null,
@@ -1854,6 +2139,22 @@
                 
                 observer.observe(stat.parentElement);
             });
+            
+            // Ajustar hero height en móviles
+            function adjustHeroHeight() {
+                const hero = document.querySelector('.hero');
+                const vh = window.innerHeight * 0.01;
+                
+                if (window.innerWidth < 768) {
+                    hero.style.minHeight = 'calc(' + (window.innerHeight * 0.9) + 'px)';
+                } else {
+                    hero.style.minHeight = '100vh';
+                }
+            }
+            
+            // Ejecutar al cargar y al redimensionar
+            adjustHeroHeight();
+            window.addEventListener('resize', adjustHeroHeight);
         });
     </script>
 </body>

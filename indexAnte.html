@@ -124,7 +124,7 @@
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 100%;
             position: relative;
             z-index: 2;
         }
@@ -139,9 +139,9 @@
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             line-height: 1.1;
-            margin-bottom: 24px;
+            margin-bottom: 40px;
             background: linear-gradient(135deg, 
                 var(--platinum) 0%, 
                 rgba(232, 232, 232, 0.9) 100%);
@@ -150,21 +150,153 @@
             background-clip: text;
         }
 
-        .hero-description {
-            font-size: 1.25rem;
-            color: var(--slate-gray);
-            max-width: 600px;
-            margin-bottom: 40px;
-            font-weight: 300;
+        /* Carrusel de Pilares - NUEVO ESTILO */
+        .pillars-carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            overflow: hidden;
         }
 
-        .hero-description01 {
-            font-size: 1.00rem;
+        .pillars-carousel {
+            display: flex;
+            transition: var(--transition);
+        }
+
+        .pillar-slide {
+            min-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .pillar {
+            background: rgba(26, 36, 63, 0.5);
+            border-radius: 16px;
+            padding: 40px;
+            transition: var(--transition);
+            border: 1px solid rgba(138, 148, 166, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold-accent), var(--electric-blue));
+        }
+
+        .pillar-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold-accent), var(--dark-gold));
+            color: var(--deep-navy);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            color: var(--gold-accent);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .pillar-title {
+            font-size: 1.5rem;
+            color: var(--platinum);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .pillar-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold-accent);
+        }
+
+        .pillar-description {
             color: var(--slate-gray);
-            max-width: 800px;
-            margin-bottom: 40px;
-            font-weight: 300;
-            text-align: justify; /* Esta es la línea que debes agregar */
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* Controles del carrusel */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .carousel-nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-nav-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.1);
+        }
+
+        .carousel-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 15px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(138, 148, 166, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            background: var(--gold-accent);
+            transform: scale(1.2);
+        }
+
+        .carousel-counter {
+            color: var(--slate-gray);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            min-width: 80px;
+            text-align: center;
         }
 
         .hero-stats {
@@ -672,7 +804,11 @@
             }
             
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 3rem;
+            }
+            
+            .pillar {
+                padding: 30px;
             }
             
             .projects-grid {
@@ -690,7 +826,16 @@
             }
             
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
+            }
+            
+            .carousel-controls {
+                gap: 20px;
+            }
+            
+            .carousel-nav-btn {
+                width: 45px;
+                height: 45px;
             }
             
             .hero-stats {
@@ -726,11 +871,28 @@
             }
             
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
             .hero-title01 {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
+            }
+            
+            .pillar {
+                padding: 25px;
+            }
+            
+            .pillar-icon {
+                font-size: 2.5rem;
+            }
+            
+            .pillar-title {
+                font-size: 1.3rem;
+            }
+            
+            .carousel-controls {
+                flex-direction: column;
+                gap: 15px;
             }
             
             .section-title {
@@ -771,21 +933,80 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section con Carrusel -->
     <section class="hero" id="inicio">
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <p class="hero-subtitle mono">Arquitecto de Soluciones Digitales</p>
                 <h1 class="hero-title01">
-                    Arquitectura de Sistemas: El Arte de la Ingeniería de Alto Rendimiento
+                    Arquitectura de Sistemas: <br>El Arte de la Ingeniería de Alto Rendimiento
                 </h1>
-                <p class="hero-description01">
-                    Concibo el diseño de software y la gestión de bases de datos como la ingeniería de un monoplaza de alta competición: cada componente debe estar optimizado para trabajar bajo presión extrema, donde la latencia es el enemigo y la precisión es la única métrica válida. Con más de 25 años de evolución constante, me especializo en convertir arquitecturas de datos masivas y complejas en flujos de información estratégica, transparente y en tiempo real.
-                    Mi enfoque combina una capacidad analítica superior con un dominio profundo del desarrollo de sistemas, permitiéndome diseñar soluciones que no solo automatizan tareas, sino que redefinen la eficiencia operativa mediante una integración perfecta entre el software y la infraestructura física. Al igual que un ingeniero de pista en la Fórmula 1, realizo una puesta a punto integral de los entornos sistémicos para eliminar cuellos de botella y garantizar que el flujo de datos sea aerodinámico.
-                    A través de la automatización avanzada, transformo procesos manuales agotadores en máquinas de precisión que permiten a las organizaciones mantenerse en la pista con la máxima velocidad de respuesta. Mi misión es garantizar que la tecnología sea el puente invisible entre la complejidad técnica y la toma de decisiones basada en la realidad.
-                    Entiendo que, en los escenarios de mayor complejidad técnica, la capacidad de simplificar hasta lo más esencial no es solo una virtud, sino la única opción real para alcanzar la excelencia.
-                </p>
+                <br>
+                <!-- Carrusel de 3 Pilares -->
+                <div class="pillars-carousel-container">
+                    <div class="pillars-carousel" id="pillarsCarousel">
+                        <!-- Slide 1: Optimización Extrema -->
+                        <div class="pillar-slide">
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <h3 class="pillar-title">Optimización Extrema</h3>
+                                <p class="pillar-description">
+                                    Concibo el diseño de software y la gestión de bases de datos como la ingeniería de un monoplaza de alta competición: cada componente debe estar optimizado para trabajar bajo presión extrema, donde la latencia es el enemigo y la precisión es la única métrica válida.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Transformación de Procesos -->
+                        <div class="pillar-slide">
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3 class="pillar-title">Transformación de Procesos</h3>
+                                <p class="pillar-description">
+                                    A través de la automatización avanzada, transformo procesos manuales agotadores en máquinas de precisión que permiten a las organizaciones mantener la máxima velocidad de respuesta. La tecnología es el puente invisible entre complejidad técnica y toma de decisiones basada en la realidad.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: 25 Años de Evolución -->
+                        <div class="pillar-slide">
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3 class="pillar-title">25 Años de Evolución</h3>
+                                <p class="pillar-description">
+                                    Con más de 25 años de evolución constante, me especializo en convertir arquitecturas de datos masivas y complejas en flujos de información estratégica, transparente y en tiempo real. Mi enfoque combina capacidad analítica superior con dominio profundo del desarrollo de sistemas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles del carrusel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-nav-btn" id="prevBtn" aria-label="Pilar anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div class="carousel-indicators" id="carouselIndicators">
+                            <span class="carousel-indicator active" data-slide="0"></span>
+                            <span class="carousel-indicator" data-slide="1"></span>
+                            <span class="carousel-indicator" data-slide="2"></span>
+                        </div>
+                        
+                        <div class="carousel-counter">
+                            <span id="currentSlide">1</span> / <span id="totalSlides">3</span>
+                        </div>
+                        
+                        <button class="carousel-nav-btn" id="nextBtn" aria-label="Pilar siguiente">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
                 
                 <div class="hero-stats">
                     <div class="stat">
@@ -809,7 +1030,7 @@
     <section class="section" id="proyectos">
         <div class="container">
             <h2 class="section-title">Portafolio <span style="color: var(--gold-accent)">Completo</span></h2>
-            <p class="hero-description" style="margin-bottom: 40px;">
+            <p class="pillar-description" style="margin-bottom: 40px; font-size: 1.1rem;">
                 Una colección completa de mis proyectos, desde sistemas empresariales complejos 
                 hasta herramientas de productividad y prácticas de desarrollo.
             </p>
@@ -831,8 +1052,6 @@
     </section>
 
     <!-- Sección de Experiencia ACTUALIZADA -->
-
-        <!-- Sección de Experiencia ACTUALIZADA -->
     <section class="section" id="experiencia">
         <div class="container">
             <h2 class="section-title">Experiencia <span style="color: var(--gold-accent)">Profesional</span></h2>
@@ -1055,7 +1274,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer id="contacto">
@@ -1320,6 +1538,130 @@
             }
         ];
 
+        // Sistema del carrusel
+        class PillarsCarousel {
+            constructor() {
+                this.carousel = document.getElementById('pillarsCarousel');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicators = document.querySelectorAll('.carousel-indicator');
+                this.currentSlideElement = document.getElementById('currentSlide');
+                this.totalSlidesElement = document.getElementById('totalSlides');
+                
+                this.currentSlide = 0;
+                this.totalSlides = this.indicators.length;
+                
+                this.init();
+            }
+            
+            init() {
+                // Configurar botones
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Configurar indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                // Configurar navegación con teclado
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+                
+                // Configurar navegación con swipe en móviles
+                this.setupTouchEvents();
+                
+                // Actualizar contador
+                this.totalSlidesElement.textContent = this.totalSlides;
+                this.updateUI();
+                
+                // Auto-rotación opcional (cada 10 segundos)
+                this.startAutoRotation();
+            }
+            
+            updateUI() {
+                // Mover carrusel
+                this.carousel.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+                
+                // Actualizar indicadores
+                this.indicators.forEach((indicator, index) => {
+                    if (index === this.currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+                
+                // Actualizar contador
+                this.currentSlideElement.textContent = this.currentSlide + 1;
+                
+                // Actualizar estado de botones
+                this.prevBtn.disabled = this.currentSlide === 0;
+                this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+            }
+            
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.updateUI();
+                    this.resetAutoRotation();
+                }
+            }
+            
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.currentSlide++;
+                    this.updateUI();
+                    this.resetAutoRotation();
+                }
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateUI();
+                this.resetAutoRotation();
+            }
+            
+            setupTouchEvents() {
+                let startX = 0;
+                let endX = 0;
+                
+                this.carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                this.carousel.addEventListener('touchmove', (e) => {
+                    endX = e.touches[0].clientX;
+                });
+                
+                this.carousel.addEventListener('touchend', () => {
+                    const diff = startX - endX;
+                    const minSwipeDistance = 50;
+                    
+                    if (Math.abs(diff) > minSwipeDistance) {
+                        if (diff > 0 && this.currentSlide < this.totalSlides - 1) {
+                            this.nextSlide();
+                        } else if (diff < 0 && this.currentSlide > 0) {
+                            this.prevSlide();
+                        }
+                    }
+                });
+            }
+            
+            startAutoRotation() {
+                this.autoRotateInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 10000); // Cambia cada 10 segundos
+            }
+            
+            resetAutoRotation() {
+                clearInterval(this.autoRotateInterval);
+                this.startAutoRotation();
+            }
+        }
+
         // Renderizar todos los proyectos
         function renderProjects(filter = 'todos') {
             const container = document.getElementById('projects-container');
@@ -1439,6 +1781,9 @@
 
         // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar carrusel
+            const pillarsCarousel = new PillarsCarousel();
+            
             // Renderizar todos los proyectos inicialmente
             renderProjects();
             
